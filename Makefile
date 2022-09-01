@@ -5,16 +5,22 @@ TARGET=yoda
 
 # найти еще флаги
 
-all: clean $(TARGET)
+all: $(TARGET)
 
 main.o: main.c
-	$(CC) $(CFLAGS) $^ -o $@
+	$(CC) $(CFLAGS) -c main.c -o main.o
 
 stack.o: stack.c
-	$(CC) $(CFLAGS) $^ -o $@
+	$(CC) $(CFLAGS) -c stack.c -o stack.o
 
-$(TARGET): main.o stack.o
-	$(CC) $^ -o $@
+tritmemory.o: tritmemory.c
+	$(CC) $(CFLAGS) -c tritmemory.c -o tritmemory.o
+
+node.o: node.c
+	$(CC) $(CFLAGS) -c node.o node.c
+
+$(TARGET): main.o stack.o tritmemory.o
+	$(CC) main.o stack.o tritmemory.o -o $(TARGET)
 
 clean:
 	rm -rf *.o yoda
