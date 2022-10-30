@@ -8,8 +8,7 @@ enum instruction {
 	NOR,
 	PLUS, ZERO, MNUS,
 	DUPL, DROP, SWAP,
-	OUT, IN,
-	IF_YES, IF_NO, IF_UNK, THEN 
+	OUT, IN
 };
 
 struct node {
